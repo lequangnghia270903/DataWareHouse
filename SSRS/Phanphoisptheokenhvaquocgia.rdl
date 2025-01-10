@@ -1,0 +1,920 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
+  <am:AuthoringMetadata>
+    <am:CreatedBy>
+      <am:Name>MSRB</am:Name>
+      <am:Version>15.0.20283.0</am:Version>
+    </am:CreatedBy>
+    <am:UpdatedBy>
+      <am:Name>MSRB</am:Name>
+      <am:Version>15.0.20283.0</am:Version>
+    </am:UpdatedBy>
+    <am:LastModifiedTimestamp>2024-11-05T14:46:09.5954607Z</am:LastModifiedTimestamp>
+  </am:AuthoringMetadata>
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource1">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=LAPTOP-L02EI6AD\SQLEXPRESS;Initial Catalog=SSIS_Sales</ConnectString>
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+      <rd:SecurityType>Integrated</rd:SecurityType>
+      <rd:DataSourceID>37e1f7c6-a66e-478b-8deb-1ed443cbc4da</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>SELECT
+  DIM_Date.[Date]
+  ,DIM_Date.DateKey AS [DIM_Date DateKey]
+  ,DIM_Location.[ship-city] AS [DIM_Location ship-city]
+  ,DIM_Location.[ship-state] AS [DIM_Location ship-state]
+  ,DIM_Location.[ship-postal-code] AS [DIM_Location ship-postal-code]
+  ,DIM_Location.[ship-country] AS [DIM_Location ship-country]
+  ,DIM_Location.LocationKey AS [DIM_Location LocationKey]
+  ,DIM_Oder.[Order ID] AS [DIM_Oder Order ID]
+  ,DIM_Oder.Status
+  ,DIM_Oder.Fulfilment AS [DIM_Oder Fulfilment]
+  ,DIM_Oder.[Sales Channel]
+  ,DIM_Oder.[fulfilled-by]
+  ,DIM_Oder.OderKey AS [DIM_Oder OderKey]
+  ,DIM_Product.SKU
+  ,DIM_Product.Category
+  ,DIM_Product.[Size] AS [DIM_Product Size]
+  ,DIM_Product.Style
+  ,DIM_Product.ASIN
+  ,DIM_Product.ProductKey AS [DIM_Product ProductKey]
+  ,DIM_Promotion.[promotion-ids]
+  ,DIM_Promotion.PromotionKey AS [DIM_Promotion PromotionKey]
+  ,DIM_Shipping.[Courier Status]
+  ,DIM_Shipping.[ship-service-level]
+  ,DIM_Shipping.ShippingKey AS [DIM_Shipping ShippingKey]
+  ,Fact_Product.[Order ID] AS [Fact_Product Order ID]
+  ,Fact_Product.Qty AS [Fact_Product Qty]
+  ,Fact_Product.[Size] AS [Fact_Product Size]
+  ,Fact_Product.Amount AS [Fact_Product Amount]
+  ,Fact_Product.currency AS [Fact_Product currency]
+  ,Fact_Product.PromotionKey AS [Fact_Product PromotionKey]
+  ,Fact_Product.ProductKey AS [Fact_Product ProductKey]
+  ,Fact_Sales.[Order ID] AS [Fact_Sales Order ID]
+  ,Fact_Sales.Qty AS [Fact_Sales Qty]
+  ,Fact_Sales.Amount AS [Fact_Sales Amount]
+  ,Fact_Sales.currency AS [Fact_Sales currency]
+  ,Fact_Sales.B2B
+  ,Fact_Sales.OderKey AS [Fact_Sales OderKey]
+  ,Fact_Sales.PromotionKey AS [Fact_Sales PromotionKey]
+  ,Fact_Sales.LocationKey AS [Fact_Sales LocationKey]
+  ,Fact_Sales.ProductKey AS [Fact_Sales ProductKey]
+  ,Fact_Sales.DateKey AS [Fact_Sales DateKey]
+  ,Fact_Sales.Fulfilment AS [Fact_Sales Fulfilment]
+  ,Fact_Shipping.[Order ID] AS [Fact_Shipping Order ID]
+  ,Fact_Shipping.DateKey AS [Fact_Shipping DateKey]
+  ,Fact_Shipping.LocationKey AS [Fact_Shipping LocationKey]
+  ,Fact_Shipping.ShippingKey AS [Fact_Shipping ShippingKey]
+  ,Fact_Shipping.[ship-city] AS [Fact_Shipping ship-city]
+  ,Fact_Shipping.[ship-state] AS [Fact_Shipping ship-state]
+  ,Fact_Shipping.[ship-postal-code] AS [Fact_Shipping ship-postal-code]
+  ,Fact_Shipping.[ship-country] AS [Fact_Shipping ship-country]
+FROM
+  Fact_Sales
+  INNER JOIN DIM_Oder
+    ON Fact_Sales.OderKey = DIM_Oder.OderKey
+  INNER JOIN DIM_Date
+    ON Fact_Sales.DateKey = DIM_Date.DateKey
+  INNER JOIN Fact_Shipping
+    ON DIM_Date.DateKey = Fact_Shipping.DateKey
+  INNER JOIN DIM_Shipping
+    ON Fact_Shipping.ShippingKey = DIM_Shipping.ShippingKey
+  INNER JOIN DIM_Product
+    ON Fact_Sales.ProductKey = DIM_Product.ProductKey
+  INNER JOIN Fact_Product
+    ON DIM_Product.ProductKey = Fact_Product.ProductKey
+  INNER JOIN DIM_Promotion
+    ON Fact_Product.PromotionKey = DIM_Promotion.PromotionKey AND Fact_Sales.PromotionKey = DIM_Promotion.PromotionKey
+  INNER JOIN DIM_Location
+    ON Fact_Sales.LocationKey = DIM_Location.LocationKey AND Fact_Shipping.LocationKey = DIM_Location.LocationKey</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+            <SelectedColumns>
+              <ColumnExpression ColumnOwner="DIM_Date" ColumnName="Date" />
+              <ColumnExpression ColumnOwner="DIM_Date" ColumnName="DateKey" />
+              <ColumnExpression ColumnOwner="DIM_Location" ColumnName="ship-city" />
+              <ColumnExpression ColumnOwner="DIM_Location" ColumnName="ship-state" />
+              <ColumnExpression ColumnOwner="DIM_Location" ColumnName="ship-postal-code" />
+              <ColumnExpression ColumnOwner="DIM_Location" ColumnName="ship-country" />
+              <ColumnExpression ColumnOwner="DIM_Location" ColumnName="LocationKey" />
+              <ColumnExpression ColumnOwner="DIM_Oder" ColumnName="Order ID" />
+              <ColumnExpression ColumnOwner="DIM_Oder" ColumnName="Status" />
+              <ColumnExpression ColumnOwner="DIM_Oder" ColumnName="Fulfilment" />
+              <ColumnExpression ColumnOwner="DIM_Oder" ColumnName="Sales Channel" />
+              <ColumnExpression ColumnOwner="DIM_Oder" ColumnName="fulfilled-by" />
+              <ColumnExpression ColumnOwner="DIM_Oder" ColumnName="OderKey" />
+              <ColumnExpression ColumnOwner="DIM_Product" ColumnName="SKU" />
+              <ColumnExpression ColumnOwner="DIM_Product" ColumnName="Category" />
+              <ColumnExpression ColumnOwner="DIM_Product" ColumnName="Size" />
+              <ColumnExpression ColumnOwner="DIM_Product" ColumnName="Style" />
+              <ColumnExpression ColumnOwner="DIM_Product" ColumnName="ASIN" />
+              <ColumnExpression ColumnOwner="DIM_Product" ColumnName="ProductKey" />
+              <ColumnExpression ColumnOwner="DIM_Promotion" ColumnName="promotion-ids" />
+              <ColumnExpression ColumnOwner="DIM_Promotion" ColumnName="PromotionKey" />
+              <ColumnExpression ColumnOwner="DIM_Shipping" ColumnName="Courier Status" />
+              <ColumnExpression ColumnOwner="DIM_Shipping" ColumnName="ship-service-level" />
+              <ColumnExpression ColumnOwner="DIM_Shipping" ColumnName="ShippingKey" />
+              <ColumnExpression ColumnOwner="Fact_Product" ColumnName="Order ID" />
+              <ColumnExpression ColumnOwner="Fact_Product" ColumnName="Qty" />
+              <ColumnExpression ColumnOwner="Fact_Product" ColumnName="Size" />
+              <ColumnExpression ColumnOwner="Fact_Product" ColumnName="Amount" />
+              <ColumnExpression ColumnOwner="Fact_Product" ColumnName="currency" />
+              <ColumnExpression ColumnOwner="Fact_Product" ColumnName="PromotionKey" />
+              <ColumnExpression ColumnOwner="Fact_Product" ColumnName="ProductKey" />
+              <ColumnExpression ColumnOwner="Fact_Sales" ColumnName="Order ID" />
+              <ColumnExpression ColumnOwner="Fact_Sales" ColumnName="Qty" />
+              <ColumnExpression ColumnOwner="Fact_Sales" ColumnName="Amount" />
+              <ColumnExpression ColumnOwner="Fact_Sales" ColumnName="currency" />
+              <ColumnExpression ColumnOwner="Fact_Sales" ColumnName="B2B" />
+              <ColumnExpression ColumnOwner="Fact_Sales" ColumnName="OderKey" />
+              <ColumnExpression ColumnOwner="Fact_Sales" ColumnName="PromotionKey" />
+              <ColumnExpression ColumnOwner="Fact_Sales" ColumnName="LocationKey" />
+              <ColumnExpression ColumnOwner="Fact_Sales" ColumnName="ProductKey" />
+              <ColumnExpression ColumnOwner="Fact_Sales" ColumnName="DateKey" />
+              <ColumnExpression ColumnOwner="Fact_Sales" ColumnName="Fulfilment" />
+              <ColumnExpression ColumnOwner="Fact_Shipping" ColumnName="Order ID" />
+              <ColumnExpression ColumnOwner="Fact_Shipping" ColumnName="DateKey" />
+              <ColumnExpression ColumnOwner="Fact_Shipping" ColumnName="LocationKey" />
+              <ColumnExpression ColumnOwner="Fact_Shipping" ColumnName="ShippingKey" />
+              <ColumnExpression ColumnOwner="Fact_Shipping" ColumnName="ship-city" />
+              <ColumnExpression ColumnOwner="Fact_Shipping" ColumnName="ship-state" />
+              <ColumnExpression ColumnOwner="Fact_Shipping" ColumnName="ship-postal-code" />
+              <ColumnExpression ColumnOwner="Fact_Shipping" ColumnName="ship-country" />
+            </SelectedColumns>
+            <Joins>
+              <Join Type="CROSS JOIN" ColumnOwner="Fact_Sales" />
+              <Join Type="INNER JOIN" ColumnOwner="DIM_Oder">
+                <On>
+                  <From ColumnOwner="Fact_Sales" ColumnName="OderKey" />
+                  <To ColumnOwner="DIM_Oder" ColumnName="OderKey" />
+                </On>
+              </Join>
+              <Join Type="INNER JOIN" ColumnOwner="DIM_Date">
+                <On>
+                  <From ColumnOwner="Fact_Sales" ColumnName="DateKey" />
+                  <To ColumnOwner="DIM_Date" ColumnName="DateKey" />
+                </On>
+              </Join>
+              <Join Type="INNER JOIN" ColumnOwner="Fact_Shipping">
+                <On>
+                  <From ColumnOwner="DIM_Date" ColumnName="DateKey" />
+                  <To ColumnOwner="Fact_Shipping" ColumnName="DateKey" />
+                </On>
+              </Join>
+              <Join Type="INNER JOIN" ColumnOwner="DIM_Shipping">
+                <On>
+                  <From ColumnOwner="Fact_Shipping" ColumnName="ShippingKey" />
+                  <To ColumnOwner="DIM_Shipping" ColumnName="ShippingKey" />
+                </On>
+              </Join>
+              <Join Type="INNER JOIN" ColumnOwner="DIM_Product">
+                <On>
+                  <From ColumnOwner="Fact_Sales" ColumnName="ProductKey" />
+                  <To ColumnOwner="DIM_Product" ColumnName="ProductKey" />
+                </On>
+              </Join>
+              <Join Type="INNER JOIN" ColumnOwner="Fact_Product">
+                <On>
+                  <From ColumnOwner="DIM_Product" ColumnName="ProductKey" />
+                  <To ColumnOwner="Fact_Product" ColumnName="ProductKey" />
+                </On>
+              </Join>
+              <Join Type="INNER JOIN" ColumnOwner="DIM_Promotion">
+                <On>
+                  <From ColumnOwner="Fact_Product" ColumnName="PromotionKey" />
+                  <To ColumnOwner="DIM_Promotion" ColumnName="PromotionKey" />
+                </On>
+                <On>
+                  <From ColumnOwner="Fact_Sales" ColumnName="PromotionKey" />
+                  <To ColumnOwner="DIM_Promotion" ColumnName="PromotionKey" />
+                </On>
+              </Join>
+              <Join Type="INNER JOIN" ColumnOwner="DIM_Location">
+                <On>
+                  <From ColumnOwner="Fact_Sales" ColumnName="LocationKey" />
+                  <To ColumnOwner="DIM_Location" ColumnName="LocationKey" />
+                </On>
+                <On>
+                  <From ColumnOwner="Fact_Shipping" ColumnName="LocationKey" />
+                  <To ColumnOwner="DIM_Location" ColumnName="LocationKey" />
+                </On>
+              </Join>
+            </Joins>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Date">
+          <DataField>Date</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DIM_Date_DateKey">
+          <DataField>DIM_Date DateKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DIM_Location_ship_city">
+          <DataField>DIM_Location ship-city</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DIM_Location_ship_state">
+          <DataField>DIM_Location ship-state</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DIM_Location_ship_postal_code">
+          <DataField>DIM_Location ship-postal-code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DIM_Location_ship_country">
+          <DataField>DIM_Location ship-country</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DIM_Location_LocationKey">
+          <DataField>DIM_Location LocationKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DIM_Oder_Order_ID">
+          <DataField>DIM_Oder Order ID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Status">
+          <DataField>Status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DIM_Oder_Fulfilment">
+          <DataField>DIM_Oder Fulfilment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Sales_Channel">
+          <DataField>Sales Channel</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fulfilled_by">
+          <DataField>fulfilled-by</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DIM_Oder_OderKey">
+          <DataField>DIM_Oder OderKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="SKU">
+          <DataField>SKU</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Category">
+          <DataField>Category</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DIM_Product_Size">
+          <DataField>DIM_Product Size</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Style">
+          <DataField>Style</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ASIN">
+          <DataField>ASIN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DIM_Product_ProductKey">
+          <DataField>DIM_Product ProductKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="promotion_ids">
+          <DataField>promotion-ids</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DIM_Promotion_PromotionKey">
+          <DataField>DIM_Promotion PromotionKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Courier_Status">
+          <DataField>Courier Status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ship_service_level">
+          <DataField>ship-service-level</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DIM_Shipping_ShippingKey">
+          <DataField>DIM_Shipping ShippingKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Product_Order_ID">
+          <DataField>Fact_Product Order ID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Product_Qty">
+          <DataField>Fact_Product Qty</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Product_Size">
+          <DataField>Fact_Product Size</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Product_Amount">
+          <DataField>Fact_Product Amount</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Product_currency">
+          <DataField>Fact_Product currency</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Product_PromotionKey">
+          <DataField>Fact_Product PromotionKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Product_ProductKey">
+          <DataField>Fact_Product ProductKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Sales_Order_ID">
+          <DataField>Fact_Sales Order ID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Sales_Qty">
+          <DataField>Fact_Sales Qty</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Sales_Amount">
+          <DataField>Fact_Sales Amount</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Sales_currency">
+          <DataField>Fact_Sales currency</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="B2B">
+          <DataField>B2B</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Sales_OderKey">
+          <DataField>Fact_Sales OderKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Sales_PromotionKey">
+          <DataField>Fact_Sales PromotionKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Sales_LocationKey">
+          <DataField>Fact_Sales LocationKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Sales_ProductKey">
+          <DataField>Fact_Sales ProductKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Sales_DateKey">
+          <DataField>Fact_Sales DateKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Sales_Fulfilment">
+          <DataField>Fact_Sales Fulfilment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Shipping_Order_ID">
+          <DataField>Fact_Shipping Order ID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Shipping_DateKey">
+          <DataField>Fact_Shipping DateKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Shipping_LocationKey">
+          <DataField>Fact_Shipping LocationKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Shipping_ShippingKey">
+          <DataField>Fact_Shipping ShippingKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Shipping_ship_city">
+          <DataField>Fact_Shipping ship-city</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Shipping_ship_state">
+          <DataField>Fact_Shipping ship-state</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Shipping_ship_postal_code">
+          <DataField>Fact_Shipping ship-postal-code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fact_Shipping_ship_country">
+          <DataField>Fact_Shipping ship-country</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Chart Name="Chart1">
+            <ChartCategoryHierarchy>
+              <ChartMembers>
+                <ChartMember>
+                  <Group Name="Chart1_CategoryGroup">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!Sales_Channel.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!Sales_Channel.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <ChartMembers>
+                    <ChartMember>
+                      <Group Name="Chart1_CategoryGroup1">
+                        <GroupExpressions>
+                          <GroupExpression>=Fields!DIM_Location_ship_country.Value</GroupExpression>
+                        </GroupExpressions>
+                      </Group>
+                      <SortExpressions>
+                        <SortExpression>
+                          <Value>=Fields!DIM_Location_ship_country.Value</Value>
+                        </SortExpression>
+                      </SortExpressions>
+                      <Label>=Fields!DIM_Location_ship_country.Value</Label>
+                    </ChartMember>
+                  </ChartMembers>
+                  <Label>=Fields!Sales_Channel.Value</Label>
+                </ChartMember>
+              </ChartMembers>
+            </ChartCategoryHierarchy>
+            <ChartSeriesHierarchy>
+              <ChartMembers>
+                <ChartMember>
+                  <Label>Fact Product Amount</Label>
+                </ChartMember>
+                <ChartMember>
+                  <Label>Fact Product Qty</Label>
+                </ChartMember>
+              </ChartMembers>
+            </ChartSeriesHierarchy>
+            <ChartData>
+              <ChartSeriesCollection>
+                <ChartSeries Name="Fact_Product_Amount">
+                  <ChartDataPoints>
+                    <ChartDataPoint>
+                      <ChartDataPointValues>
+                        <Y>=Aggregate(Fields!Fact_Product_Amount.Value)</Y>
+                      </ChartDataPointValues>
+                      <ChartDataLabel>
+                        <Style>
+                          <FontSize>9pt</FontSize>
+                        </Style>
+                      </ChartDataLabel>
+                      <ToolTip>#VALY</ToolTip>
+                      <Style />
+                      <ChartMarker>
+                        <Style />
+                      </ChartMarker>
+                      <DataElementOutput>Output</DataElementOutput>
+                    </ChartDataPoint>
+                  </ChartDataPoints>
+                  <Type>Shape</Type>
+                  <Style>
+                    <ShadowOffset>0pt</ShadowOffset>
+                  </Style>
+                  <ChartEmptyPoints>
+                    <Style />
+                    <ChartMarker>
+                      <Style />
+                    </ChartMarker>
+                    <ChartDataLabel>
+                      <Style />
+                    </ChartDataLabel>
+                  </ChartEmptyPoints>
+                  <ValueAxisName>Primary</ValueAxisName>
+                  <CategoryAxisName>Primary</CategoryAxisName>
+                  <ChartSmartLabel>
+                    <CalloutLineColor>Black</CalloutLineColor>
+                    <MinMovingDistance>0pt</MinMovingDistance>
+                  </ChartSmartLabel>
+                </ChartSeries>
+                <ChartSeries Name="Fact_Product_Qty">
+                  <ChartDataPoints>
+                    <ChartDataPoint>
+                      <ChartDataPointValues>
+                        <Y>=Aggregate(Fields!Fact_Product_Qty.Value)</Y>
+                      </ChartDataPointValues>
+                      <ChartDataLabel>
+                        <Style>
+                          <FontSize>9pt</FontSize>
+                        </Style>
+                      </ChartDataLabel>
+                      <ToolTip>#VALY</ToolTip>
+                      <Style />
+                      <ChartMarker>
+                        <Style />
+                      </ChartMarker>
+                      <DataElementOutput>Output</DataElementOutput>
+                    </ChartDataPoint>
+                  </ChartDataPoints>
+                  <Type>Shape</Type>
+                  <Style>
+                    <ShadowOffset>0pt</ShadowOffset>
+                  </Style>
+                  <ChartEmptyPoints>
+                    <Style />
+                    <ChartMarker>
+                      <Style />
+                    </ChartMarker>
+                    <ChartDataLabel>
+                      <Style />
+                    </ChartDataLabel>
+                  </ChartEmptyPoints>
+                  <ValueAxisName>Primary</ValueAxisName>
+                  <CategoryAxisName>Primary</CategoryAxisName>
+                  <ChartSmartLabel>
+                    <CalloutLineColor>Black</CalloutLineColor>
+                    <MinMovingDistance>0pt</MinMovingDistance>
+                  </ChartSmartLabel>
+                </ChartSeries>
+              </ChartSeriesCollection>
+            </ChartData>
+            <ChartAreas>
+              <ChartArea Name="Default">
+                <ChartCategoryAxes>
+                  <ChartAxis Name="Primary">
+                    <Style>
+                      <Border>
+                        <Color>#5c5c5c</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Color>#5c5c5c</Color>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Enabled>False</Enabled>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                  <ChartAxis Name="Secondary">
+                    <Style>
+                      <Border>
+                        <Color>#5c5c5c</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Color>#5c5c5c</Color>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Enabled>False</Enabled>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Location>Opposite</Location>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                </ChartCategoryAxes>
+                <ChartValueAxes>
+                  <ChartAxis Name="Primary">
+                    <Style>
+                      <Border>
+                        <Color>#5c5c5c</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Color>#5c5c5c</Color>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                  <ChartAxis Name="Secondary">
+                    <Style>
+                      <Border>
+                        <Color>#5c5c5c</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <FontSize>8pt</FontSize>
+                      <Color>#5c5c5c</Color>
+                    </Style>
+                    <ChartAxisTitle>
+                      <Caption />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <Color>#5c5c5c</Color>
+                      </Style>
+                    </ChartAxisTitle>
+                    <ChartMajorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                        </Border>
+                      </Style>
+                    </ChartMajorGridLines>
+                    <ChartMinorGridLines>
+                      <Style>
+                        <Border>
+                          <Color>Gainsboro</Color>
+                          <Style>Dotted</Style>
+                        </Border>
+                      </Style>
+                    </ChartMinorGridLines>
+                    <ChartMajorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </ChartMajorTickMarks>
+                    <ChartMinorTickMarks>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                        </Border>
+                      </Style>
+                      <Length>0.5</Length>
+                    </ChartMinorTickMarks>
+                    <CrossAt>NaN</CrossAt>
+                    <Location>Opposite</Location>
+                    <Minimum>NaN</Minimum>
+                    <Maximum>NaN</Maximum>
+                    <ChartAxisScaleBreak>
+                      <Style />
+                    </ChartAxisScaleBreak>
+                  </ChartAxis>
+                </ChartValueAxes>
+                <Style>
+                  <BackgroundColor>White</BackgroundColor>
+                  <BackgroundGradientType>None</BackgroundGradientType>
+                </Style>
+              </ChartArea>
+            </ChartAreas>
+            <ChartLegends>
+              <ChartLegend Name="Default">
+                <Style>
+                  <Border>
+                    <Color>#5c5c5c</Color>
+                  </Border>
+                  <BackgroundGradientType>TopBottom</BackgroundGradientType>
+                  <FontSize>8pt</FontSize>
+                </Style>
+                <ChartLegendTitle>
+                  <Caption />
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </ChartLegendTitle>
+                <HeaderSeparatorColor>Black</HeaderSeparatorColor>
+                <ColumnSeparatorColor>Black</ColumnSeparatorColor>
+              </ChartLegend>
+            </ChartLegends>
+            <ChartTitles>
+              <ChartTitle Name="Default">
+                <Caption>Phân phối doanh thu theo kênh bán hàng và quốc gia</Caption>
+                <Style>
+                  <BackgroundGradientType>None</BackgroundGradientType>
+                  <FontFamily>Times New Roman</FontFamily>
+                  <FontSize>16pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextAlign>Left</TextAlign>
+                  <VerticalAlign>Top</VerticalAlign>
+                  <Color>Brown</Color>
+                </Style>
+              </ChartTitle>
+            </ChartTitles>
+            <Palette>Pacific</Palette>
+            <ChartBorderSkin>
+              <Style>
+                <BackgroundColor>Gray</BackgroundColor>
+                <BackgroundGradientType>None</BackgroundGradientType>
+                <Color>White</Color>
+              </Style>
+            </ChartBorderSkin>
+            <ChartNoDataMessage Name="NoDataMessage">
+              <Caption>No Data Available</Caption>
+              <Style>
+                <BackgroundGradientType>None</BackgroundGradientType>
+                <FontWeight>Bold</FontWeight>
+                <TextAlign>General</TextAlign>
+                <VerticalAlign>Top</VerticalAlign>
+              </Style>
+            </ChartNoDataMessage>
+            <DataSetName>DataSet1</DataSetName>
+            <Top>0mm</Top>
+            <Left>0mm</Left>
+            <Height>5.66666in</Height>
+            <Width>6in</Width>
+            <Style>
+              <Border>
+                <Color>#5c5c5c</Color>
+                <Style>None</Style>
+                <Width>2pt</Width>
+              </Border>
+              <BackgroundColor>White</BackgroundColor>
+              <BackgroundGradientType>None</BackgroundGradientType>
+            </Style>
+          </Chart>
+        </ReportItems>
+        <Height>901.7mm</Height>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Body>
+      <Width>152.4mm</Width>
+      <Page>
+        <PageFooter>
+          <Height>11.43mm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="ExecutionTime">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!ExecutionTime</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>ExecutionTime</rd:DefaultName>
+              <Top>5.08mm</Top>
+              <Left>101.6mm</Left>
+              <Height>6.35mm</Height>
+              <Width>50.8mm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <LeftMargin>2cm</LeftMargin>
+        <RightMargin>2cm</RightMargin>
+        <TopMargin>2cm</TopMargin>
+        <BottomMargin>2cm</BottomMargin>
+        <ColumnSpacing>0.13cm</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <rd:ReportUnitType>Mm</rd:ReportUnitType>
+  <rd:ReportID>3373426e-0b19-4f45-b2df-c400ac796ce3</rd:ReportID>
+</Report>

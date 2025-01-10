@@ -1,0 +1,144 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B98D56E0-BD0C-4734-A5E1-C15532EEADEA}|SSAS\\SSAS.dwproj|N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\SSAS\\SSAS.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B98D56E0-BD0C-4734-A5E1-C15532EEADEA}|SSAS\\SSAS.dwproj|solutionrelative:SSAS\\SSAS.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B98D56E0-BD0C-4734-A5E1-C15532EEADEA}|SSAS\\SSAS.dwproj|N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\SSAS\\DIM Oder.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B98D56E0-BD0C-4734-A5E1-C15532EEADEA}|SSAS\\SSAS.dwproj|solutionrelative:SSAS\\DIM Oder.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B98D56E0-BD0C-4734-A5E1-C15532EEADEA}|SSAS\\SSAS.dwproj|N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\SSAS\\DIM Shipping.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B98D56E0-BD0C-4734-A5E1-C15532EEADEA}|SSAS\\SSAS.dwproj|solutionrelative:SSAS\\DIM Shipping.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B98D56E0-BD0C-4734-A5E1-C15532EEADEA}|SSAS\\SSAS.dwproj|N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\SSAS\\DIM Promotion.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B98D56E0-BD0C-4734-A5E1-C15532EEADEA}|SSAS\\SSAS.dwproj|solutionrelative:SSAS\\DIM Promotion.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B98D56E0-BD0C-4734-A5E1-C15532EEADEA}|SSAS\\SSAS.dwproj|N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\SSAS\\DIM Product.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B98D56E0-BD0C-4734-A5E1-C15532EEADEA}|SSAS\\SSAS.dwproj|solutionrelative:SSAS\\DIM Product.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B98D56E0-BD0C-4734-A5E1-C15532EEADEA}|SSAS\\SSAS.dwproj|N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\SSAS\\DIM Location.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B98D56E0-BD0C-4734-A5E1-C15532EEADEA}|SSAS\\SSAS.dwproj|solutionrelative:SSAS\\DIM Location.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B98D56E0-BD0C-4734-A5E1-C15532EEADEA}|SSAS\\SSAS.dwproj|N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\SSAS\\DIM Date.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{B98D56E0-BD0C-4734-A5E1-C15532EEADEA}|SSAS\\SSAS.dwproj|solutionrelative:SSAS\\DIM Date.dim||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 330,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 193,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SSAS.cube [Design]",
+              "DocumentMoniker": "N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\SSAS\\SSAS.cube",
+              "RelativeDocumentMoniker": "SSAS\\SSAS.cube",
+              "ToolTip": "N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\SSAS\\SSAS.cube [Design]",
+              "RelativeToolTip": "SSAS\\SSAS.cube [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-04T13:51:02.187Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DIM Shipping.dim [Design]",
+              "DocumentMoniker": "N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\SSAS\\DIM Shipping.dim",
+              "RelativeDocumentMoniker": "SSAS\\DIM Shipping.dim",
+              "ToolTip": "N:\\HK1_N\u0103m4\\Data Warehouse-SV\\SSAS\\SSAS\\DIM Shipping.dim [Design]",
+              "RelativeToolTip": "..\\..\\Data Warehouse-SV\\SSAS\\SSAS\\DIM Shipping.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-04T13:49:04.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DIM Promotion.dim [Design]",
+              "DocumentMoniker": "N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\SSAS\\DIM Promotion.dim",
+              "RelativeDocumentMoniker": "SSAS\\DIM Promotion.dim",
+              "ToolTip": "N:\\HK1_N\u0103m4\\Data Warehouse-SV\\SSAS\\SSAS\\DIM Promotion.dim [Design]",
+              "RelativeToolTip": "..\\..\\Data Warehouse-SV\\SSAS\\SSAS\\DIM Promotion.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-04T13:48:49.689Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DIM Product.dim [Design]",
+              "DocumentMoniker": "N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\SSAS\\DIM Product.dim",
+              "RelativeDocumentMoniker": "SSAS\\DIM Product.dim",
+              "ToolTip": "N:\\HK1_N\u0103m4\\Data Warehouse-SV\\SSAS\\SSAS\\DIM Product.dim [Design]",
+              "RelativeToolTip": "..\\..\\Data Warehouse-SV\\SSAS\\SSAS\\DIM Product.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-04T13:48:32.783Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DIM Oder.dim [Design]",
+              "DocumentMoniker": "N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\SSAS\\DIM Oder.dim",
+              "RelativeDocumentMoniker": "SSAS\\DIM Oder.dim",
+              "ToolTip": "N:\\HK1_N\u0103m4\\Data Warehouse-SV\\SSAS\\SSAS\\DIM Oder.dim [Design]",
+              "RelativeToolTip": "..\\..\\Data Warehouse-SV\\SSAS\\SSAS\\DIM Oder.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-04T13:48:19.474Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DIM Location.dim [Design]",
+              "DocumentMoniker": "N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\SSAS\\DIM Location.dim",
+              "RelativeDocumentMoniker": "SSAS\\DIM Location.dim",
+              "ToolTip": "N:\\HK1_N\u0103m4\\Data Warehouse-SV\\SSAS\\SSAS\\DIM Location.dim [Design]",
+              "RelativeToolTip": "..\\..\\Data Warehouse-SV\\SSAS\\SSAS\\DIM Location.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-04T13:48:04.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DIM Date.dim [Design]",
+              "DocumentMoniker": "N:\\HK1_N\u0103m4\\Data Warehouse\\SSAS\\SSAS\\DIM Date.dim",
+              "RelativeDocumentMoniker": "SSAS\\DIM Date.dim",
+              "ToolTip": "N:\\HK1_N\u0103m4\\Data Warehouse-SV\\SSAS\\SSAS\\DIM Date.dim [Design]",
+              "RelativeToolTip": "..\\..\\Data Warehouse-SV\\SSAS\\SSAS\\DIM Date.dim [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-04T13:47:49.548Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

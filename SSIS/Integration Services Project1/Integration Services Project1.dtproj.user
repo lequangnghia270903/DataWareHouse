@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataTransformationsUserConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <AssessmentRuleSuppressionSetting />
+        <UseWinAuth>false</UseWinAuth>
+        <WinAuthUserName />
+        <WinAuthDomain />
+        <UserIDs>
+          <ConfigurationSetting>
+            <Id>{2CA0BE24-EDA9-4005-B46F-37CEB2782EAF}</Id>
+            <Name>{2CA0BE24-EDA9-4005-B46F-37CEB2782EAF}</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAArhhdZF7jRUSvNwz97f0SpQAAAABOAAAAewAyAEMAQQAwAEIARQAyADQALQBFAEQAQQA5AC0ANAAwADAANQAtAEIANAA2AEYALQAzADcAQwBFAEIAMgA3ADgAMgBFAEEARgB9AAAAEGYAAAABAAAgAAAA8tDxgMACfY+ErstFKJGONBY4uUBblkSz5+FD8v5ON9wAAAAADoAAAAACAAAgAAAACHzC5Jx3okZCrUuzykWhQtE+Eyk5z0svv9WNhYAU+aQQAAAA0AdOGlonmd2/u0ULEHclV0AAAABAtTgXDa4NJ0knbFjJxx2BNeHIeFgYaepD1oQLmBa3amR+sc6N4xNRzkwOS5pgkj8OFh7RpI+PVLlIrZxlLogI</Value>
+          </ConfigurationSetting>
+        </UserIDs>
+        <UserPasswords>
+          <ConfigurationSetting>
+            <Id>{2CA0BE24-EDA9-4005-B46F-37CEB2782EAF}</Id>
+            <Name>{2CA0BE24-EDA9-4005-B46F-37CEB2782EAF}</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAArhhdZF7jRUSvNwz97f0SpQAAAABOAAAAewAyAEMAQQAwAEIARQAyADQALQBFAEQAQQA5AC0ANAAwADAANQAtAEIANAA2AEYALQAzADcAQwBFAEIAMgA3ADgAMgBFAEEARgB9AAAAEGYAAAABAAAgAAAAyPJDpokbLwqrnC5rXsBfr8AHmhKQVosQE4BnBhTx7XUAAAAADoAAAAACAAAgAAAAuoxYwF8nmbCzgQEvTFV0wET/JdaoOIzC6f8n1YtU8P8gAAAA6PfED+GdJx68khCPqwZ/Y4D65v1cFW8RVgE/kLdaHiRAAAAAAW4TboRy9vK7TgSun6+PPDdCqsEArkaOrUQ7BjEPkloeIpcrwo7UdF+58U+Akcuvh/Nu6/XYX0p5VmBJc/ejYg==</Value>
+          </ConfigurationSetting>
+        </UserPasswords>
+        <OfflineMode>false</OfflineMode>
+        <ProgressReporting>true</ProgressReporting>
+        <ParameterConfigurationSensitiveValues>
+          <ConfigurationSetting>
+            <Id>LastModifiedTime</Id>
+            <Name>LastModifiedTime</Name>
+            <Value xsi:type="xsd:dateTime">2024-10-04T12:04:00.1088226Z</Value>
+          </ConfigurationSetting>
+        </ParameterConfigurationSensitiveValues>
+      </Options>
+    </Configuration>
+  </Configurations>
+</DataTransformationsUserConfiguration>
